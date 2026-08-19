@@ -33,7 +33,7 @@ export default function SectionHeading({ eyebrow, title, description }) {
       </motion.div>
 
       <motion.h2
-        className="bg-gradient-to-r from-ink via-ink to-signal bg-clip-text font-display text-3xl font-semibold tracking-tight text-transparent sm:text-4xl"
+        className="bg-gradient-to-r from-ink via-ink to-signal bg-clip-text font-display text-2xl font-semibold tracking-tight text-transparent sm:text-3xl md:text-4xl"
         initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.15 }}
@@ -43,7 +43,7 @@ export default function SectionHeading({ eyebrow, title, description }) {
 
       {description && (
         <motion.p
-          className="mt-4 text-balance leading-relaxed text-muted"
+          className="mt-4 text-balance text-sm leading-relaxed text-muted sm:text-base"
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}

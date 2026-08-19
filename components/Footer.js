@@ -13,7 +13,7 @@ export default function Footer() {
         transition={{ duration: 4, repeat: Infinity }}
       />
 
-      <div className="relative z-10 mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-6 font-mono text-xs text-muted sm:flex-row">
+      <div className="relative z-10 mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-4 font-mono text-xs text-muted sm:flex-row sm:px-6">
         <motion.span
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
