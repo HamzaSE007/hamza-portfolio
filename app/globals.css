@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================================
+   BASE RESET & GLOBAL
+   ============================================================ */
 * {
   scroll-behavior: smooth;
 }
@@ -15,25 +18,34 @@ body {
   color: #0a0d10;
 }
 
+/* ============================================================
+   CUSTOM SCROLLBAR
+   ============================================================ */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
   background: #0a0d10;
 }
 ::-webkit-scrollbar-thumb {
-  background: #232a32;
+  background: linear-gradient(180deg, #4fd1c5, #2c7a73);
   border-radius: 6px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #2c7a73;
+  background: #4fd1c5;
 }
 
+/* ============================================================
+   FOCUS
+   ============================================================ */
 :focus-visible {
   outline: 2px solid #4fd1c5;
   outline-offset: 3px;
 }
 
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -45,171 +57,191 @@ body {
   }
 }
 
-.trace-line {
-  stroke: #232a32;
-  stroke-width: 1;
-}
-
+/* ============================================================
+   TYPOGRAPHY UTILITIES
+   ============================================================ */
 .text-balance {
   text-wrap: balance;
 }
 
-/* Custom animations */
-@keyframes float-up {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-}
-
-@keyframes glow-pulse {
-  0%, 100% {
-    box-shadow: 0 0 10px rgba(79, 209, 197, 0.5);
-  }
-  50% {
-    box-shadow: 0 0 25px rgba(79, 209, 197, 0.8);
-  }
-}
-
-@keyframes shimmer {
-  0% {
-    background-position: -1000px 0;
-  }
-  100% {
-    background-position: 1000px 0;
-  }
-}
-
-@keyframes slide-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slide-in-left {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes bounce-soft {
-  0%, 100% {
-    opacity: 0.6;
-    transform: translateY(0);
-  }
-  50% {
-    opacity: 1;
-    transform: translateY(-8px);
-  }
-}
-
-@keyframes rotate-slow {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes pulse-soft {
-  0%, 100% {
-    opacity: 0.5;
-  }
-  50% {
-    opacity: 1;
-  }
-}
-
-@keyframes bg-pulse {
-  0%, 100% {
-    background-color: rgba(79, 209, 197, 0.05);
-  }
-  50% {
-    background-color: rgba(79, 209, 197, 0.15);
-  }
-}
-
-/* Utility classes for animations */
-.animate-float {
-  animation: float-up 3s ease-in-out infinite;
-}
-
-.animate-glow {
-  animation: glow-pulse 2s ease-in-out infinite;
-}
-
-.animate-shimmer {
-  animation: shimmer 2s infinite;
-}
-
-.animate-slide-up {
-  animation: slide-in-up 0.6s ease-out;
-}
-
-.animate-slide-left {
-  animation: slide-in-left 0.6s ease-out;
-}
-
-.animate-fade-in {
-  animation: fade-in 0.6s ease-out;
-}
-
-.animate-bounce-soft {
-  animation: bounce-soft 2s ease-in-out infinite;
-}
-
-.animate-rotate-slow {
-  animation: rotate-slow 8s linear infinite;
-}
-
-.animate-pulseSoft {
-  animation: pulse-soft 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-.animate-bg-pulse {
-  animation: bg-pulse 2s ease-in-out infinite;
-}
-
-/* Gradient text animation */
 .bg-clip-text {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* Smooth transitions for interactive elements */
+/* ============================================================
+   CIRCUIT BACKDROP (legacy)
+   ============================================================ */
+.trace-line {
+  stroke: #232a32;
+  stroke-width: 1;
+}
+
+/* ============================================================
+   KEYFRAMES — BASIC
+   ============================================================ */
+@keyframes float-up {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-20px); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 10px rgba(79, 209, 197, 0.5); }
+  50%       { box-shadow: 0 0 30px rgba(79, 209, 197, 0.85); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+@keyframes slide-in-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-in-left {
+  from { opacity: 0; transform: translateX(-30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes bounce-soft {
+  0%, 100% { opacity: 0.6; transform: translateY(0); }
+  50%       { opacity: 1;   transform: translateY(-8px); }
+}
+
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.5; }
+  50%       { opacity: 1; }
+}
+
+@keyframes bg-pulse {
+  0%, 100% { background-color: rgba(79, 209, 197, 0.05); }
+  50%       { background-color: rgba(79, 209, 197, 0.15); }
+}
+
+/* ============================================================
+   KEYFRAMES — NEW PROFESSIONAL EFFECTS
+   ============================================================ */
+
+/* Shimmer text gradient sweep (used on hero headline) */
+@keyframes shimmerText {
+  0%   { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Sonar/radar ripple for timeline dots */
+@keyframes sonarRipple {
+  0%   { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(3); opacity: 0; }
+}
+
+/* Gradient mesh motion */
+@keyframes meshDrift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(30px, -20px) scale(1.05); }
+  66%       { transform: translate(-20px, 30px) scale(0.95); }
+}
+
+/* Draw-in line from top */
+@keyframes drawLineDown {
+  from { height: 0; }
+  to   { height: 100%; }
+}
+
+/* Orb float for FloatingCodeOrb */
+@keyframes orbFloat {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-14px); }
+}
+
+/* Tag float for orbiting labels */
+@keyframes tagFloat {
+  0%, 100% { opacity: 0.7; transform: translateY(0px); }
+  50%       { opacity: 1;   transform: translateY(-5px); }
+}
+
+/* Scan line sweep */
+@keyframes scanSweep {
+  0%   { transform: translateY(-10px); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translateY(120px); opacity: 0; }
+}
+
+/* Particle field handled in canvas JS */
+
+/* ============================================================
+   ANIMATION UTILITY CLASSES
+   ============================================================ */
+.animate-float         { animation: float-up 3s ease-in-out infinite; }
+.animate-glow          { animation: glow-pulse 2s ease-in-out infinite; }
+.animate-shimmer       { animation: shimmer 2s infinite; }
+.animate-slide-up      { animation: slide-in-up 0.6s ease-out; }
+.animate-slide-left    { animation: slide-in-left 0.6s ease-out; }
+.animate-fade-in       { animation: fade-in 0.6s ease-out; }
+.animate-bounce-soft   { animation: bounce-soft 2s ease-in-out infinite; }
+.animate-rotate-slow   { animation: rotate-slow 8s linear infinite; }
+.animate-pulseSoft     { animation: pulse-soft 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+.animate-bg-pulse      { animation: bg-pulse 2s ease-in-out infinite; }
+.animate-mesh-drift    { animation: meshDrift 12s ease-in-out infinite; }
+.animate-orb-float     { animation: orbFloat 4s ease-in-out infinite; }
+.animate-scan          { animation: scanSweep 3s linear infinite; }
+.animate-shimmer-text  { animation: shimmerText 3s linear infinite; }
+
+/* ============================================================
+   INTERACTIVE ELEMENT DEFAULTS
+   ============================================================ */
 button,
 a {
   @apply transition-all duration-300;
 }
 
-/* Glow effect for signals */
+/* ============================================================
+   GLOW EFFECTS
+   ============================================================ */
 .glow-signal {
   box-shadow: 0 0 20px rgba(79, 209, 197, 0.3);
 }
-
 .glow-signal:hover {
-  box-shadow: 0 0 30px rgba(79, 209, 197, 0.6);
+  box-shadow: 0 0 35px rgba(79, 209, 197, 0.6);
 }
+
+.glow-strong {
+  box-shadow: 0 0 40px rgba(79, 209, 197, 0.4), 0 0 80px rgba(79, 209, 197, 0.15);
+}
+
+/* ============================================================
+   GLASSMORPHISM CARD
+   ============================================================ */
+.glass-card {
+  background: rgba(18, 22, 27, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(79, 209, 197, 0.1);
+}
+
+/* ============================================================
+   GRADIENT MESH BACKGROUND (optional utility)
+   ============================================================ */
+.gradient-mesh {
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(79,209,197,0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(44,122,115,0.04) 0%, transparent 40%),
+    radial-gradient(ellipse at 50% 80%, rgba(167,139,250,0.03) 0%, transparent 40%);
+}
+
+/* ============================================================
+   TAILWIND CUSTOM KEYFRAMES (used via tailwind.config)
+   ============================================================ */
